@@ -1,2 +1,2 @@
-# authorship-data
-Repository containing all relevant data generated in the study about code authorship metrics
+# Authorship-data
+Repository contains all relevant data generated in the investigation of applying repository-mining techniques to identify source code maintainers.
