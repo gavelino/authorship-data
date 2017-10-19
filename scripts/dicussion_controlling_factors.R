@@ -11,6 +11,9 @@
 # ember.js,74.0,24.25,928.0,240.75
 # fog,210.0,29.0,1023.0,59.0
 
+library(data.table)
+library(ggplot2)
+
 oracleData = read.csv("../data/oracle-info.csv", sep = ';', dec= ",", header = T);
 names(oracleData) = c("id","systemsGroup","system","file","devId","dev_answer","doa","commit","blame","doaV","CommitV","blameV","isFA", "DE", "AC","nCommits","LoCode","daysLC","nComAfter", "commitsPerc")
 oracleData$classification = ifelse(oracleData$dev_answer <=3, "non-maintainer", "maintainer")
@@ -39,7 +42,7 @@ commit = c(commit, getHM(data, "commit"))
 blame = c(blame, getHM(data, "blame"))
 resFog = computeResults4Vars(data,210.0,29.0,1023.0,59.0, 0.05)
 newDoa = c(newDoa,max(resFog$doa))
-newCommit = c(newCommit, max(resFogcommit))
+newCommit = c(newCommit, max(resFog$commit))
 newBlame = c(newBlame, max(resFog$blame))
 
 print("Computing Commercial#1 results ...")
